@@ -27,7 +27,6 @@ var TYPES = {
   test: true
 };
 
-
 var error = function() {
   // gitx does not display it
   // http://gitx.lighthouseapp.com/projects/17830/tickets/294-feature-display-hook-error-message-when-hook-fails
@@ -56,7 +55,7 @@ var validateMessage = function(message) {
     return false;
   }
 
-  var type = match[1];
+  var type = match[2];
   var scope = match[3];
   var subject = match[4];
 
