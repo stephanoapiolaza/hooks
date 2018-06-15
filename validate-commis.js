@@ -13,7 +13,7 @@ var util = require('util');
 
 
 var MAX_LENGTH = 70;
-var PATTERN = /^(?:fixup!\s*)?(\w*)(\((\w+)\))?\: (.*)$/;
+var PATTERN = /^(.*) - (?:fixup!\s*)?(\w*)(\((\w+)\))?\: ([A-Z].*)$/;
 var IGNORED = /^WIP\:/;
 var TYPES = {
   chore: true,
@@ -52,7 +52,7 @@ var validateMessage = function(message) {
   var match = PATTERN.exec(message);
 
   if (!match) {
-    error('does not match "<type>(<scope>): <subject>" ! was: "' + message + '"\nNote: <scope> must be only letters.');
+    error('does not match "<project-code> - <type>(<scope>): <subject>" ! was: "' + message + '"\nNote: <scope> must be only letters and <subject> the first letter is capitalize');
     return false;
   }
 
